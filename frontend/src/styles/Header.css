@@ -1,0 +1,10 @@
+.Header {
+    background: rgba(0, 128, 0, 0.7); /* Semi-transparent green background */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .Header-logo {
+    width: 100px;
+  }
+  
