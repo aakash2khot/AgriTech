@@ -38,8 +38,9 @@ function CropRecommendationForm({ setRecommendation }) {
     }
   };
 
-  return (
+  return  (
     <form onSubmit={handleSubmit} className="form">
+    <h2>Crop Recommendation Form</h2>
       <label>
         N:
         <input type="text" name="N" value={formData.N} onChange={handleChange} />
@@ -66,6 +67,7 @@ function CropRecommendationForm({ setRecommendation }) {
       </label>
       <button type="submit">Get Recommendation</button>
     </form>
+
   );
 }
 

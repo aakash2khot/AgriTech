@@ -1,36 +1,62 @@
-/* Form.css */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #eafaf1;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
 .form {
-  background: white;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  max-width: 500px;
-  margin: 20px auto;
+  background-color: #ffffff;
+  padding: 5px;
+  border-radius: 15px;
+  /* box-shadow: 0 10px rgba(0, 0, 0, 0.1); */
+  /* width: 90%; */
+  max-width: 600px;
+  margin: 40px auto;
 }
 
-.form label {
-  display: block;
+.form h2 {
   margin-bottom: 10px;
+  color: #4CAF50;
+  font-size: 24px;
 }
 
-.form input {
+label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #555;
+}
+
+input {
   width: 100%;
-  padding: 10px;
-  margin: 5px 0;
+  padding: 12px;
+  margin-top: 5px;
+  border: 2px solid #ddd;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  font-size: 16px;
+  box-sizing: border-box;
 }
 
-.form button {
-  background: #4CAF50;
+input:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+button {
+  background-color: #4CAF50;
   color: white;
-  padding: 10px 15px;
+  padding: 15px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1em;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  margin-top: 20px;
 }
 
-.form button:hover {
-  background: #45a049;
+button:hover {
+  background-color: #45a049;
 }
