@@ -1,8 +1,9 @@
+// Form.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../../styles/Form.css';
 
-function PlantDiseaseDetectionForm({ setDisease }) {
+function PlantDiseaseDetectionForm({ setDisease, setDiseaseInfo }) {
   const [selectedFile, setSelectedFile] = useState(null);
 
   const handleFileChange = (e) => {
@@ -26,10 +27,11 @@ function PlantDiseaseDetectionForm({ setDisease }) {
           'Content-Type': 'multipart/form-data',
         },
       });
-      console.log('Response from backend:', response.data);  // Debugging statement
+      console.log('Response from backend:', response.data);
 
-      // Pass the result to the setDisease prop function
+      // Pass the result to the setDisease and setDiseaseInfo prop functions
       setDisease(response.data.predicted_disease);
+      setDiseaseInfo(response.data.disease_info);
     } catch (error) {
       console.error('There was an error making the request:', error);
     }

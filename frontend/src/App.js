@@ -9,11 +9,15 @@ import PlantDiseaseDetectionResult from './components/PlantDiseaseDetection/Resu
 import FertilizerRecommendationResult from './components/FertilizerRecommendation/Result';
 import PestInfestationResult from './components/PestInfestation/Result';
 import './styles/App.css';
+import './styles/PlantDiseaseDetection.css';
+import './styles/PestInfestation.css';
 
 function App() {
   const [recommendation, setRecommendation] = useState('');
   const [disease, setDisease] = useState('');
+  const [diseaseInfo, setDiseaseInfo] = useState('');
   const [pest, setPest] = useState('');
+  const [managementStrategies, setManagementStrategies] = useState(null);
 
   return (
     <Router>
@@ -28,8 +32,8 @@ function App() {
             } />
             <Route path="/plant-disease-detection" element={
               <div>
-                <PlantDiseaseDetectionForm setDisease={setDisease} />
-                {disease && <PlantDiseaseDetectionResult disease={disease} />}
+                <PlantDiseaseDetectionForm setDisease={setDisease} setDiseaseInfo={setDiseaseInfo} />
+                {disease && <PlantDiseaseDetectionResult disease={disease} diseaseInfo={diseaseInfo} />}
               </div>
             } />
             <Route path="/fertilizer-recommendation" element={
@@ -38,8 +42,8 @@ function App() {
             <Route path="/fertilizer-result" element={<FertilizerRecommendationResult recommendation={recommendation} />} />
             <Route path="/pest-infestation" element={
               <div>
-                <PestInfestationForm setPest={setPest} />
-                {pest && <PestInfestationResult pest={pest} />}
+                <PestInfestationForm setPest={setPest} setManagementStrategies={setManagementStrategies} />
+                {pest && <PestInfestationResult pest={pest} managementStrategies={managementStrategies} />}
               </div>
             } />
             <Route path="/" element={

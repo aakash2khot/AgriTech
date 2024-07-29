@@ -1,3 +1,4 @@
+# plant_disease_detection.py
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -9,6 +10,7 @@ from PIL import Image
 import io
 from markupsafe import Markup
 from models.Resnet import ResNet9  # Correct import
+from disease_info import disease_dic
 
 plant_disease_detection_bp = Blueprint('plant_disease_detection_bp', __name__)
 
@@ -54,8 +56,9 @@ def predict_disease():
 
         img = file.read()
         prediction = predict_image(img)
+        disease_info = disease_dic.get(prediction, 'No information available')
 
-        return jsonify({'predicted_disease': prediction})
+        return jsonify({'predicted_disease': prediction, 'disease_info': Markup(disease_info)})
     except Exception as e:
         print(f"Error: {e}")
         return jsonify({'error': str(e)}), 500
